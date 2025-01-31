@@ -1,22 +1,29 @@
 def get_factors(num):
     """
-    Function to calculate all factors of a given number.
+    Function to calculate all factors of a given number efficiently.
     
     Parameters:
     num (int): The number for which factors need to be calculated.
     
     Returns:
-    list: A list of factors of the number.
+    list: A sorted list of factors of the number.
     """
-    factors = []  # Initialize an empty list to store factors
-    for i in range(1, num + 1):  # Loop through numbers from 1 to the given number
+    factors = set()  # Use a set to avoid duplicates
+    for i in range(1, int(num**0.5) + 1):  # Loop only up to square root of num
         if num % i == 0:  # Check if 'i' is a factor of 'num'
-            factors.append(i)  # Add 'i' to the factors list
-    return factors
+            factors.add(i)  # Add 'i' to the set
+            factors.add(num // i)  # Add the corresponding factor
+    
+    return sorted(factors)  # Return sorted factors for readability
 
 if __name__ == "__main__":
-    # Input: Get a number from the user
-    n = int(input("Enter a number to find its factors: "))
-    
-    # Output: Print the list of factors
-    print(f"Factors of {n}: {get_factors(n)}")
+    try:
+        # Input: Get a number from the user
+        n = int(input("Enter a number to find its factors: "))
+        if n <= 0:
+            raise ValueError("Please enter a positive integer.")
+        
+        # Output: Print the list of factors
+        print(f"Factors of {n}: {get_factors(n)}")
+    except ValueError as e:
+        print(f"Invalid input: {e}")
