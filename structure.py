@@ -56,6 +56,3 @@ v2 = Vector(2, 4, 7)
 
 # Adding two vectors
 res = v1 + v2
-
-# Displaying the result
-print(res)
