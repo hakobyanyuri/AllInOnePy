@@ -27,11 +27,9 @@ class Person:
         return self.age >= other.age
 
 # Creating Person instances
-p1 = Person('Anna', 16)
-p2 = Person('Yuri', 14)
-p3 = Person('Hakob', 54)
-p4 = Person('Liana', 47)
-p5 = Person('Arina', 23)
+p1 = Person('Adam', 16)
+p2 = Person('John', 14)
+p5 = Person('Ann', 23)
 
 class Vector:
     """
